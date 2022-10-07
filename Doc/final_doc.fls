@@ -1,6 +1,6 @@
-PWD c:\Users\Daniel Teran\Documents\DANNYT\UC3M\DCEC\Trabajo_EVA_Bloque1\Doc
+PWD c:\Users\Daniel Teran\Documents\DANNYT\UC3M\DCEC\DCEC\Doc
 INPUT C:\Users\Daniel Teran\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\Daniel Teran\Documents\DANNYT\UC3M\DCEC\Trabajo_EVA_Bloque1\Doc\final_doc.tex
+INPUT c:\Users\Daniel Teran\Documents\DANNYT\UC3M\DCEC\DCEC\Doc\final_doc.tex
 OUTPUT final_doc.log
 INPUT C:\Users\Daniel Teran\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\Daniel Teran\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
@@ -1180,6 +1180,12 @@ INPUT C:\Users\Daniel Teran\AppData\Local\Programs\MiKTeX\fonts\vf\huerta\alegre
 INPUT C:\Users\Daniel Teran\AppData\Local\Programs\MiKTeX\fonts\tfm\huerta\alegreya\AlegreyaSans-Italic-lf-t1--base.tfm
 INPUT C:\Users\Daniel Teran\AppData\Local\Programs\MiKTeX\fonts\vf\huerta\alegreya\AlegreyaSans-Regular-lf-t1.vf
 INPUT C:\Users\Daniel Teran\AppData\Local\Programs\MiKTeX\fonts\tfm\huerta\alegreya\AlegreyaSans-Regular-lf-t1--base.tfm
+INPUT C:\Users\Daniel Teran\AppData\Local\Programs\MiKTeX\fonts\vf\huerta\alegreya\AlegreyaSans-Regular-lf-t1.vf
+INPUT C:\Users\Daniel Teran\AppData\Local\Programs\MiKTeX\fonts\tfm\huerta\alegreya\AlegreyaSans-Regular-lf-t1--base.tfm
+INPUT C:\Users\Daniel Teran\AppData\Local\Programs\MiKTeX\fonts\tfm\huerta\alegreya\AlegreyaSans-Regular-lf-t1.tfm
+INPUT C:\Users\Daniel Teran\AppData\Local\Programs\MiKTeX\fonts\tfm\huerta\alegreya\AlegreyaSans-Bold-lf-t1.tfm
+INPUT C:\Users\Daniel Teran\AppData\Local\Programs\MiKTeX\fonts\vf\huerta\alegreya\AlegreyaSans-Bold-lf-t1.vf
+INPUT C:\Users\Daniel Teran\AppData\Local\Programs\MiKTeX\fonts\tfm\huerta\alegreya\AlegreyaSans-Bold-lf-t1--base.tfm
 INPUT final_doc.aux
 INPUT .\final_doc.out
 INPUT .\final_doc.out
