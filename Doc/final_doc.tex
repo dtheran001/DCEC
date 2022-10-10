@@ -140,11 +140,38 @@
   \section*{Apartado 1}
 
     \paragraph*{}
-    En este apartado de pedía diseñar un filtro paso bajo en \textbf{Matlab} de forma que contase con un polo en la frecuencia de 30KHz.
+    En este apartado se pedía diseñar un filtro paso bajo en \textbf{Matlab} de forma que contase con un polo en la frecuencia de 30KHz.
+    Para ello, es necesario utilizar la función "tf", que calcula la función de transferencia en tiempo continuo (H(s)).
+    Después, transformamos esta función en H(z) mediante el uso del comando "c2d", que nos calcula la transformada Z de la función anterior.
+    De esta forma, el código para generar las anteriores funciones, así como las variables necesarias y su correspondiente salida:
 
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{Img/img_apartado_1.PNG}
+      \caption{Entrada y salida del apartado 1 en Matlab}%
+      \label{fig:img1}
+  \end{figure}
 
+    %%si quieres, tras esto se puede explicar un poco el significado de la función Hz, aunque tampoco le veo mucho sentido. Igual es mejor explicarlo en el apartado siguiente
 
   \section*{Apartado 2}
+  
+    \paragraph*{}
+    En el segundo apartado se pide representar gráficamente ambas funciones. Para conseguir este objetivo se emplea la función "bode".
+    De esta forma, la representación de la función de transferencia, tanto en tiempo continuo como en discreto, queda de la siguiente manera:
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{Img/img_apartado_2.PNG}
+      \caption{H(s) y H(z) representados en Matlab}%
+      \label{fig:img2}
+  \end{figure}
+
+  \paragraph*{}
+  Como se puede ver,
+
+  %%falta tirarnos el moco con alguna explicación técnica
+  
   \section*{Apartado 3}
   \section*{Apartado 4}
   \section*{Apartado 5}
