@@ -141,8 +141,8 @@
 
     \paragraph*{}
     En este apartado se pedía diseñar un filtro paso bajo en \textbf{Matlab} de forma que contase con un polo en la frecuencia de 30KHz.
-    Para ello, es necesario utilizar la función "tf", que calcula la función de transferencia en tiempo continuo (H(s)).
-    Después, transformamos esta función en H(z) mediante el uso del comando "c2d", que nos calcula la transformada Z de la función anterior.
+    Para ello, es necesario utilizar la función \textit{tf}, que calcula la función de transferencia en tiempo continuo (H(s)).
+    Después, transformamos esta función en H(z) mediante el uso del comando \textit{c2d}, que nos calcula la transformada Z de la función anterior.
     De esta forma, el código para generar las anteriores funciones, así como las variables necesarias y su correspondiente salida:
 
     \begin{figure}[H]
@@ -171,12 +171,40 @@
   Como se puede ver,
 
   %%falta tirarnos el moco con alguna explicación técnica
-  
+
   \section*{Apartado 3}
   \section*{Apartado 4}
   \section*{Apartado 5}
   \section*{Apartado 6}
   \section*{Apartado 7}
+
+   \paragraph*{}
+   Para calcular valores de los condensadores tales que hagan al circuito diseñado comportarse como el circuito teórico del primer apartado,
+   sus funciones de transferencia deben ser equivalentes. Para ello, se iguala término a término la función de transferencia teórica obtenida en el primer apartado
+   con la función de transferencia calculada en el apartado 5, una vez se ha normalizado el término cuadrático de ambas funciones. Además, debemos suponer que los valores de C2 y C5 son iguales, e iguales a 20pF,
+   y C1 y C4 son a su vez iguales.
+
+   %%me parecía redundante meter aquí la expresión completa de las funciones cuando ya están en el apartado 1 y 5
+   \paragraph*{}
+   De esta forma, encontramos las siguientes equivalencias:
+   
+   \begin{itemize}
+     \item $\frac{C_2}{C_2 + C_7} = 0.963$ 
+     \item $\frac{C_1 \cdot C_4 }{C_5(C_2+C_7)} = 0.03466$
+     \item $\frac{C_4\cdot C_3 - C_5 \cdot C_7 - 2 \cdot C_5 \cdot C_2}{C_5(C_2 + C_7)} = -1.928$
+    \end{itemize}
+
+    \paragraph*{}
+    Despejando de las anteriores equivalencias, se obtienen los siguientes valores para los condensadores del circuito:
+
+   \begin{itemize}
+      \item $C_2 = C_5 = 20pF$
+      \item $C_1 = C_4 = 3.79pF$
+      \item $C_7 = 0.77 pF$
+      \item $C_3 = 3.82pF$
+    \end{itemize}
+
+
   \section*{Apartado 8}
   \section*{Apartado 9}
   \newpage
