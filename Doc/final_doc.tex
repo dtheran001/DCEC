@@ -137,7 +137,10 @@
     {\Large 11 de Octubre del 2022 \par}
   \end{titlepage}
 
-  \section*{Apartado 1}
+  \tableofcontents
+  \newpage
+  
+  \section{Apartado 1}
 
     \paragraph*{}
     En este apartado se pedía diseñar un filtro paso bajo en \textbf{Matlab} de forma que contase con un polo en la frecuencia de 30KHz.
@@ -152,8 +155,9 @@
       \label{fig:img1}
     \end{figure}
 
+\vspace*{1cm}
 
-  \section*{Apartado 2}
+  \section{Apartado 2}
   
     \paragraph*{}
     En el segundo apartado se pide representar gráficamente ambas funciones. Para conseguir este objetivo se emplea la función "bode".
@@ -172,7 +176,7 @@
     decir, a los 30 kHz que hemos puesto como polo en los datos del filtro.
     
   
-  \section*{Apartado 3}
+  \section{Apartado 3}
 
   \paragraph*{}
     En esta sección se analiza tanto analíticamente como gráficamente, a través del software de simulación de circuitos \textbf{LTSpice}, 
@@ -200,7 +204,7 @@
     del circuito completo. El desarrollo de función de transferencia (\ref{fig:h1}), se encuentra disponible en el Anexo I.
 
 
-  \section*{Apartado 4}
+  \section{Apartado 4}
 
     \paragraph*{}
     Para encontrar la frecuencia de corte de la primea etapa, podemos optar por dos opciones: (1) mirar la entrada y la salida del filtro para diferentes 
@@ -248,7 +252,7 @@
     Podemos observar entonces, que las señales de entrada y salida están desfasadas aproximadamente 45º entre sí. 
 
 
-  \section*{Apartado 5}
+  \section{Apartado 5}
     \paragraph*{}
     En esta sección se va a analizar de forma analítica la función de transferencia del circuito completo. Para ello primero tenemos que 
     identificar qué otras etapas existen en el mismo y sacar sus correspondientes funciones de transferencia, de forma que finalmente, 
@@ -270,7 +274,7 @@
         \item \textbf{Filtro 2 ($H_2$):} Enmarcada en verde, es otra etapa del circuito que, como veremos más adelante, corresponde con un filtro inversor sin retardo.
     \end{itemize}
     
-    \subsection*{Función de transferencia de la etapa 2.}
+    \subsection{Función de transferencia de la etapa 2.}
 
     \paragraph*{}
     La función de transferencia de la etapa 2, a la que se ha llamado $H_{2}(Z)$, es la siguiente: 
@@ -287,7 +291,7 @@
     Como se puede observar, da como resultante un filtro inversor y sin retardo. Esto hará posible que el funcionamiento del circuito completo tenga sentido 
     y sea realizable. El desarrollo de función de transferencia (\ref{fig:h2}), se encuentra disponible en el Anexo I.
 
-    \subsection*{Función de transferencia de la etapa 3 o etapa integradora.}
+    \subsection{Función de transferencia de la etapa 3 o etapa integradora.}
 
     \paragraph*{}
     La función de transferencia de la etapa 3, a la que se ha llamado $H_{3}(Z)$, es la siguiente:
@@ -379,7 +383,7 @@
     En el apartado 7 veremos que para poder comparar los valores A, B y C de la función de transferencia total con el filtro obtenido en el 
     apartado 1 (filtro de matlab), hay que normalizar los elementos de la función al término cuadrático del denominador. 
 
-  \section*{Apartado 6}
+  \section{Apartado 6}
 
     \paragraph*{}
     En este apartado se pedía separar la parte integradora y analizarla por separado, de forma que podamos analizar el error de carga que cae sobre 
@@ -390,7 +394,7 @@
     Con los valores anteriores y poniendo el con un valor de condensador de muestreo de 0.1pF, obtenemos el siguiente error: 
 
 
-  \section*{Apartado 7}
+  \section{Apartado 7}
 
     \paragraph*{}
     Para calcular valores de los condensadores tales que hagan al circuito diseñado comportarse como el circuito teórico del primer apartado,
@@ -419,10 +423,10 @@
 
     
 
- \section*{Apartado 8}
+ \section{Apartado 8}
 
 
- \section*{Apartado 9}
+ \section{Apartado 9}
     
     \paragraph*{}
     En este apartado se pide calcular todas las resistencias equivalentes de las redes de capacidad conmutada. Para realizar este cambio,
