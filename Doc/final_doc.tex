@@ -380,15 +380,24 @@
     apartado 1 (filtro de matlab), hay que normalizar los elementos de la función al término cuadrático del denominador. 
 
   \section*{Apartado 6}
+
+    \paragraph*{}
+    En este apartado se pedía separar la parte integradora y analizarla por separado, de forma que podamos analizar el error de carga que cae sobre 
+    el condensador de muestreo. Para ello además de adaptar el circuito, fijamos el valor del condensador de integración ($C_5$) a 20pF, aumentamos 
+    amplitud la señal de entrada a 1.7 V ya que tendremos mayor error en ese caso, y aumentamos también la frecuencia de entrada a 1.5 MHz. 
+
+    \paragraph*{}
+    Con los valores anteriores y poniendo el con un valor de condensador de muestreo de 0.1pF, obtenemos el siguiente error: 
+
+
   \section*{Apartado 7}
 
     \paragraph*{}
     Para calcular valores de los condensadores tales que hagan al circuito diseñado comportarse como el circuito teórico del primer apartado,
     sus funciones de transferencia deben ser equivalentes. Para ello, se iguala término a término la función de transferencia teórica obtenida en el primer apartado
-    con la función de transferencia calculada en el apartado 5, una vez se ha normalizado el término cuadrático de ambas funciones. Además, debemos suponer que 
+    con la función de transferencia calculada en el apartado 5 (\ref{fig:h}), una vez se ha normalizado el término cuadrático de ambas funciones. Además, debemos suponer que 
     los valores de $C_2$ y $C_5$ son iguales, e iguales a 20pF, y $C_1$ y $C_4$ son a su vez iguales.
 
-    %%me parecía redundante meter aquí la expresión completa de las funciones cuando ya están en el apartado 1 y 5
     \paragraph*{}
     De esta forma, encontramos las siguientes equivalencias:
     
@@ -410,23 +419,23 @@
 
 
  \section*{Apartado 8}
+
+
  \section*{Apartado 9}
- \paragraph*{}
- En este apartado se pide calcular todas las resistencias equivalentes de las redes de capacidad conmutada. Para realizar este cambio,
- se pueden sustituir los condensadores $C_1, C_7, C_3$ y $C_4$, así como sus transistores correspondientes, por la resistencia equivalente en
- cada caso.
+    
+    \paragraph*{}
+    En este apartado se pide calcular todas las resistencias equivalentes de las redes de capacidad conmutada. Para realizar este cambio,
+    se pueden sustituir los condensadores $C_1, C_7, C_3$ y $C_4$, así como sus transistores correspondientes, por la resistencia equivalente en
+    cada caso.
 
- \paragraph*{}
- Para calcular el valor de la resistencia equivalente, hay que dividir el voltaje medio medido en cada condensador por la corriente media
- que atraviesa dicho elemento. No obstante, de manera analítica puede calcularse como $\frac{T_s}{C}$. Así, las resistencias equivalnetes son las siguientes:
+    \paragraph*{}
+    Para calcular el valor de la resistencia equivalente, hay que dividir el voltaje medio medido en cada condensador por la corriente media
+    que atraviesa dicho elemento. No obstante, de manera analítica puede calcularse como $\frac{T_s}{C}$. Así, las resistencias equivalentes son las siguientes:
 
- \begin{itemize}
-  \item $R_1 = R_4 = 263.85K\Omega $
-  \item $R_7 = 1.3 M\Omega$
-  \item $C_3 = 261.78K\Omega$
-\end{itemize}
- \newpage
- \section*{Anexos: }
- \subsection*{Anexo I: Desarrollo de la función de transferencia de la primera etapa del filtro completo}
- \subsection*{Anexo II: Desarrollo de la función de transferencia del filtro completo}
+    \begin{itemize}
+      \item $R_1 = R_4 = 263.85K\Omega $
+      \item $R_7 = 1.3 M\Omega$
+      \item $C_3 = 261.78K\Omega$
+    \end{itemize}
+ 
 \end{document}
