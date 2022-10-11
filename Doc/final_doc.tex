@@ -152,7 +152,6 @@
       \label{fig:img1}
     \end{figure}
 
-    %%si quieres, tras esto se puede explicar un poco el significado de la función Hz, aunque tampoco le veo mucho sentido. Igual es mejor explicarlo en el apartado siguiente
 
   \section*{Apartado 2}
   
@@ -168,9 +167,10 @@
     \end{figure}
 
     \paragraph*{}
-    Como se puede ver,
-
-    %%falta tirarnos el moco con alguna explicación técnica
+    En la figura \ref{fig:img1} podemos ver el módulo y fase del filtro completo. En la imagen de abajo (fase) se ve como al llegar los 45º 
+    en el módulo (imagen de arriba) tenemos un pico. Ésto corresponde a uno de los polos de funcionamiento del filtro paso bajo de segundo orden, es 
+    decir, a los 30 kHz que hemos puesto como polo en los datos del filtro.
+    
   
   \section*{Apartado 3}
 
@@ -201,6 +201,53 @@
 
 
   \section*{Apartado 4}
+
+    \paragraph*{}
+    Para encontrar la frecuencia de corte de la primea etapa, podemos optar por dos opciones: (1) mirar la entrada y la salida del filtro para diferentes 
+    frecuencias, y ver en cual de ellas estas dos señales están desfasadas 45º, pues ésto indica que para dicha frecuencia existiría un polo y por lo tanto 
+    también coincidiría con la frecuencia de corte dado que se trata de un filtro de primer orden; o (2) podemos utilizar los valores de los condensadores que 
+    vienen en el filtro y sustituirlos en en la función de transferencia $H_{1}$ (\ref{fig:h1}) y buscar el polo correspondiente igualando a cero el denominador. 
+
+    \paragraph*{}
+    Se ha optado por calcular de forma analítica la frecuencia de corte (opción 2) y, posteriormente, comprobar el valor obtenido de forma gráfica. 
+
+    \paragraph*{}
+    Al sustituir los condensadores $C_2$ y $C_7$ por sus valores en el filtro (20pF y 1pF respectivamente) e igualar el denominador a 0, obtenemos el siguiente valor: 
+
+    \begin{figure}[H]
+      \begin{center}
+          ${1 - \frac{20pF}{20pF + 1pF}\cdot Z^{-1}} = 0$
+          \\
+          \vspace*{1cm}
+          $Z = \frac{20pF}{21pF}$ $\rightarrow Z = e^w$
+          \\
+          \vspace*{1cm}
+          $ln(e^w) = ln(\frac{20}{21})$ $\rightarrow w= 2\pi \cdot \frac{f_c}{f_s}$
+          \\
+          \vspace*{1cm}
+          $f_c = \frac{f_s}{2\pi}\cdot ln(\frac{20}{21})$
+          \\
+          \vspace*{1cm}
+          $f_c \approx 7.765 kHz$
+          \caption{Calculo de la frecuencia de corte de la primera etapa del filtro completo}%
+          \label{fig:fc}
+      \end{center}
+    \end{figure}
+
+    \paragraph*{}
+    Si cogemos dicha frecuencia resultante y la usamos para simular el comportamiento en la primera etapa, vemos entonces la siguiente salida: 
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{Img/desfase_señales.png}
+      \caption{Desfase de 45º entre la señal de entrada y salida}%
+      \label{fig:desf45}
+    \end{figure}
+    
+    \paragraph*{}
+    Podemos observar entonces, que las señales de entrada y salida están desfasadas aproximadamente 45º entre sí. 
+
+
   \section*{Apartado 5}
     \paragraph*{}
     En esta sección se va a analizar de forma analítica la función de transferencia del circuito completo. Para ello primero tenemos que 
