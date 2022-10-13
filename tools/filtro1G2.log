@@ -1,4 +1,4 @@
-Circuit: * C:\Users\Daniel Teran\Documents\DANNYT\UC3M\DCEC\Trabajo_EVA_Bloque1\tools\filtro1G2.asc
+Circuit: * C:\Users\Daniel Teran\Documents\DANNYT\UC3M\DCEC\DCEC\tools\filtro1G2.asc
 
 Ignoring BSIM parameter XL
 Ignoring BSIM parameter XW
@@ -25,22 +25,22 @@ Gmin = 2.70769e-013
 Gmin = 0
 Gmin stepping succeeded in finding the operating point.
 
-Heightened Def Con from 0.00208789 to 0.00208789
+Heightened Def Con from 0.00239839 to 0.00239839
 
-Date: Thu Oct 06 14:16:35 2022
-Total elapsed time: 8.765 seconds.
+Date: Tue Oct 11 15:54:21 2022
+Total elapsed time: 11.886 seconds.
 
 tnom = 27
 temp = 27
 method = modified trap
-totiter = 1061463
-traniter = 1061041
-tranpoints = 398362
-accept = 307373
-rejected = 90990
+totiter = 1225103
+traniter = 1224681
+tranpoints = 459173
+accept = 353626
+rejected = 105548
 matrix size = 17
 fillins = 2
 solver = Normal
 Matrix Compiler1: 1000 bytes object code size  0.3/0.2/[0.1]
-Matrix Compiler2: off  [0.1]/0.2/0.2
+Matrix Compiler2: 1.82 KB object code size  0.3/0.3/[0.3]
 

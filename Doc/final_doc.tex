@@ -166,7 +166,7 @@
     \begin{figure}[H]
       \centering
       \includegraphics[width=1\linewidth]{Img/img_apartado_2.PNG}
-      \caption{H(s) y H(z) representados en Matlab}%
+      \caption{H(s) y H(z) representados en Matlab mediante su diagrama de bode}%
       \label{fig:img2}
     \end{figure}
 
@@ -387,12 +387,52 @@
 
     \paragraph*{}
     En este apartado se pedía separar la parte integradora y analizarla por separado, de forma que podamos analizar el error de carga que cae sobre 
-    el condensador de muestreo. Para ello además de adaptar el circuito, fijamos el valor del condensador de integración ($C_5$) a 20pF, aumentamos 
+    el condensador de muestreo de forma gráfica. Para ello además de adaptar el circuito, fijamos el valor del condensador de integración ($C_5$) a 20pF, aumentamos 
     amplitud la señal de entrada a 1.7 V ya que tendremos mayor error en ese caso, y aumentamos también la frecuencia de entrada a 1.5 MHz. 
 
     \paragraph*{}
     Con los valores anteriores y poniendo el con un valor de condensador de muestreo de 0.1pF, obtenemos el siguiente error: 
 
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{Img/errorQ_01pF.png}
+      \caption{Error de carga medido para un condensador de muestreo de 0.1pF}%
+      \label{fig:error_01pF}
+    \end{figure}
+    
+    \paragraph*{}
+    Como podemos observar en la figura \ref{fig:error_01pF}, el error resultante está alrededor de los 11 mV. Si repetimos el proceso, pero esta vez con 
+    un valor de condensador de muestre de 1pF, error es: 
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{Img/errorQ_1pF.png}
+      \caption{Error de carga medido para un condensador de muestreo de 1pF}%
+      \label{fig:error_1pF}
+    \end{figure}
+    
+    \paragraph*{}
+    En este caso vemos que el error se reduce (como debería ser) hasta un valor de aproximadamente 9 mV. Si realizamos una última prueba con un condensador 
+    de mayor capacidad, como por ejemplo 10pF, obtenemos el siguiente error de carga: 
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{Img/errorQ_10pF.png}
+      \caption{Error de carga obtenido para un condensador de muestreo de 10 pF}%
+      \label{fig:error_10pF}
+    \end{figure}
+
+    \paragraph*{}
+    Como vemos, el erro de carga medido gráficamente aumenta a 16.5 mV. Ésto es debido a que en realidad no estamos midiendo exactamente el error de carga; debido 
+    a la gran capacidad del condensador, estamos viendo problemas en el seguimiento de la tensión de entrada ya que la frecuencia de muestreo es tan rápida que no 
+    permite que el condensador se cargue y descargue lo suficiente. 
+
+    \paragraph*{}
+    Por lo tanto, concluimos que con un valor de condensador de muestreo de 1pF obtenemos resultados de error de carga lo suficiente buenos para darlos por válidos. 
+    si fuese necesario reducir aún más el error, entonces sería necesario conocer las características internas del transistor para analizar el error de carga de forma 
+    analítica y encontrar la capacidad ideal del condensador de muestreo que nos diese el mínimo error de carga buscado, y posteriormente habría que simular su funcionamiento 
+    en el circuito. 
+    
 
   \section{Apartado 7}
 
@@ -425,6 +465,126 @@
 
  \section{Apartado 8}
 
+
+    \paragraph*{}
+    En esta sección veremos con varias capturas como el funcionamiento de las salidas paso bajo y paso alto del filtro completo se comportan más o menos con lo 
+    que cabe esperar. 
+
+    \subsection{Salida paso bajo del filtro (Vlp)}
+
+    \paragraph*{}
+    En cuanto a la salida paso bajo, hemos adaptado el valor de los condensadores para que aproximadamente en los 30 kHz se encuentre un poco de funcionamiento que, 
+    según el diagrama de bode (\ref{fig:img2}), la salida debería sufrir un pico de ganancia máxima antes de empezar a atenuarse pasada la frecuencia de corte. 
+
+    \paragraph*{}
+    Para comprobar lo antes mencionado, vamos a ver la salida paso bajo (vlp) para 3 frecuencias: 
+    
+    \begin{itemize}
+      \item \textbf{Frecuencia de 10 kHz:} veremos como la señal de salida debería ser muy similar a la señal de entrada.
+      \item \textbf{Frecuencia de 30 kHz:} veremos como la señal de salida tiene mayor voltaje que la de entrada debido al pico de ganancia. 
+      \item \textbf{Frecuencia de 50 kHz:} veremos como la señal empieza a atenuarse y a desfasarse en mayor medida hasta llegar a la frecuencia de corte. 
+    \end{itemize}
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{Img/vlp_10khz.png}
+      \caption{Salida paso bajo a 10 kHz}%
+      \label{fig:vlp_10khz}
+    \end{figure}
+    
+    \paragraph*{}
+    En la figura anterior podemos ver como la salida es muy similar a la entrada excepto por algún pequeño desfase que pueda existir. 
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{Img/vlp_30khz.png}
+      \caption{Salida paso bajo a 30 kHz}%
+      \label{fig:vlp_30khz}
+    \end{figure}
+    
+    \paragraph*{}
+    Podemos observar claramente como la salida tiene una ganancia en tensión respecto de la entrada. 
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{Img/vlp_50khz.png}    
+      \caption{Salida paso bajo a 50 kHz}%
+      \label{fig:vlp_50khz}
+    \end{figure}
+
+    \paragraph*{}
+    Finalmente podemos ver como la señal de salida está más atenuada que la de entrada, por lo que podemos suponer que conforme la frecuencia de entrada 
+    vaya aumentando, la señal de salida irá disminuyendo, es decir, la salida paso bajo se comporta efectivamente como un filtro paso bajo. 
+
+    \subsection{Salida paso banda del filtro (Vbp)}
+
+    \paragraph*{}
+    De la salida paso banda sabemos que al pertenecer a la primera etapa del filtro la cual fue analizada en el apartado 3, la frecuencia de corte 
+    del filtro paso bajo de primer orden correspondiente al análisis de solo esa etapa, será la frecuencia de corte menor del filtro paso banda, es decir, 
+    aproximadamente en los 8 kHz el filtro paso banda empezará a dejar pasar la señal. Si analizamos el diagrama de bode de un filtro paso banda de segundo orden, 
+    veremos que donde de encuentra la frecuencia central del filtro tendremos un pico de ganancia que afectará la salida, lo cual veremos claramente en una de las 
+    figuras a continuación. 
+
+    \paragraph*{}
+    A diferencia del caso anterior, la función de transferencia del filtro paso banda no lo conocemos por lo que calcular analíticamente y dar una aproximación de 
+    donde se encuentra el polo de funcionamiento del filtro no es posible. Por lo tanto, se analizará de forma gráfica y aproximada mediante prueba y error en el uso 
+    de diferentes frecuencias de entrada. 
+
+    \paragraph*{}
+    Para analizar el funcionamiento de la salida paso banda del filtro, probaremos con 4frecuencias diferentes: 
+
+    \begin{itemize}
+      \item \textbf{Frecuencia a 1 kHz:} A esta frecuencia el filtro no deja pasar la señal ya que es una frecuencia menor que la frecuencia de corte menor del filtro. Por 
+      lo que a la salida no deberíamos ver nada. 
+      \item \textbf{Frecuencia a 8 kHz:} A esta frecuencia se debería empezar a ver algo de señal a la salida, pero no gran cosa ya que nos encontramos al principio de la 
+      frecuencia de corte menor del filtro. Veremos una señal de salida muy atenuada. 
+      \item \textbf{Frecuencia a 20 kHz:} A esta frecuencia nos encontramos muy cerca del polo de funcionamiento, por lo que veremos una señal de salida muy por encima de la señal 
+      de entrada que incluso se satura (como podremos ver).
+      \item \textbf{Frecuencia a 50 kHz:} A esta frecuencia ya nos encontramos en la pendiente de bajada cerca de la frecuencia de corte superior del filtro, por lo que veremos la 
+      señal de salida muy atenuada y desfasada respecto a la entrada. 
+    \end{itemize}
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{Img/vbp_1khz.png}
+      \caption{Salida paso banda a 1 kHz}%
+      \label{fig:vbp_1khz}
+    \end{figure}
+
+    \paragraph*{}
+    Vemos como la salida es nula debido a que el filtro paso banda no deja pasar la señal hasta los 8 kHz. 
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{Img/vbp_8khz.png}
+      \caption{Salida paso banda a 8 kHz}%
+      \label{fig:vbp_8khz}
+    \end{figure}
+
+    \paragraph*{}
+    Como se ha mencionada, la señal empieza a pasar ya que nos encontramos cerca de la frecuencia de corte menor del filtro.  
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{Img/vbp_20khz.png}
+      \caption{Salida paso banda a 20 kHz}%
+      \label{fig:vbp_20khz}
+    \end{figure}
+
+    \paragraph*{}
+    Se puede observar como la señal de salida se satura por lo que tenemos los picos achatados. 
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{Img/vbp_50khz.png}
+      \caption{Salida paso banda a 50 kHz}%
+      \label{fig:vbp_50khz}
+    \end{figure}
+    
+    \paragraph*{}
+    Finalmente, vemos como la señal de salida se va atenuando respecto a la señal de entrada. Por lo tanto, podemos concluir que la salida paso banda
+    se comporta efectivamente como un filtro baso banda.
+    
 
  \section{Apartado 9}
     
