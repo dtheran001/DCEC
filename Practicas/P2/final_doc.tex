@@ -137,10 +137,32 @@
     {\Large 25 de Octubre del 2022 \par}
   \end{titlepage}
 
-  \section*{Primera sección solo para escribir la tabla de resultado}
+  \section{Apartado 1}
+
+    \paragraph*{}
+    En este apartado se pedía realizar el montaje del siguiente circuito esquemático: 
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{img/esquematico_ampl.png}
+      \caption{Circuito esquemático a montar: Amplificador sintonizado}%
+      \label{fig:esque_ampl}
+    \end{figure}
     
     \paragraph*{}
-    Luego ponemos esto donde entre, pero de momento escribo la tabla aquí. 
+    Como de puede observar, se trata de un circuito con una etapa diferencia adaptada (puesto que no tenemos manera de invertir la señal e introducir 
+    exactamente las tensiones positivas y negativas en ambos lados del diferencial) que junto con las bobinas y condensador que unen las dos etapas 
+    se obtiene un amplificador de tensión sintonizado. La tensión de salida será la resta del lado izquierdo y derecho del condensador $C_1$, la cual 
+    podremos medir con las herramientas que nos presta el osciloscopio. 
+    
+  \section{Apartado 2}
+    
+    \paragraph*{}
+    Después de montar el circuito y comprobar que las conexiones son correctas y corresponden con el circuito esquemático (figura \ref*{fig:esque_ampl}), 
+    el siguiente paso es proceder a realizar medidas para diferentes valores de entrada tanto de frecuencia como de amplitud. 
+    
+    \paragraph*{}
+    En la siguiente tabla, podemos ver las medidas realizadas y los resultados obtenidos tanto de ganancia como de señal de salida. 
 
 \vspace*{1.0cm}
 
@@ -163,10 +185,73 @@
       \end{center}
     \end{table}
 
+  \paragraph*{}
+    De la tabla anterior, se puede recalcar que en el polo de funcionamiento del amplificador ($f_0 = 11 kHz$) es cuando el amplificador tiene un mejor desempeño aplicando una ganancia de 
+    aproximadamente 30. Si nos vamos alejando poco a poco de dicho polo, vemos como la ganancia cae rápidamente, por lo que podemos intuir que su comportamiento en el dominio de Laplace será 
+    un filtro paso banda de segundo orden. 
 
-    \paragraph*{Apartado 4}
+    \paragraph*{}
+    Para ver ésto más en profundidad, en el apartado siguiente se dibujará el diagrama de bode del amplificador y se comparará con su diagrama ideal. 
+
+  \section{Apartado 3}
+
+    \paragraph*{}
+    En este apartado se dibujará el diagrama de bode del amplificador sintonizado construido a partir de los valores obtenidos y además se comparará con su función ideal. 
+
+    \paragraph*{}
+    El diagrama de bode obtenido del circuito construido es el siguiente: 
+   
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{img/bode_real.png}
+      \caption{Diagrama de bode del circuito construido}%
+      \label{fig:bode_real}
+    \end{figure}
+    
+    \paragraph*{}
+    Como se puede observar, tenemos un pico de ganancia máxima en la frecuencia del polo de funcionamiento del amplificador, en 11 kHz, alrededor de él la ganancia aplicada 
+    recae rápidamente. 
+
+    \paragraph*{}
+    Un diagrama de bode de un filtro paso banda de segundo orden ideal, sería el siguiente: 
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{img/bode_ideal.png}
+      \caption{Diagrama de bode un filtro paso banda ideal de segundo orden}%
+      \label{fig:bode_ideal}
+    \end{figure}
+    
+    \paragraph*{}
+    Podemos observar que el comportamiento en cuanto a la magnitud del filtro y el diagrama de bode real del amplificador son muy similares, por lo que concluimos que el funcionamiento 
+    del amplificador es el adecuado teniendo en cuenta los datos medidos. 
+
+    \paragraph*{}
+    Cabe recalcar que para que los diagramas de bode reales e ideales mostrados sean más similares, es necesario obtener más valores de medida en saltos más pequeños en eje de frecuencias. 
+    Por otro lado, el comportamiento de la fase no de uno y el otro no corresponden porque en la práctica sólo se midieron valores de amplitud. 
+
+  \section{Apartado 4}
+
+    \paragraph*{}
     La diferencia entre los resultados medidos en el laboratorio y los resultados de la simulación se debe principalmente a la resistencia parásita
     que aparece en las bobinas reales. Por tanto, para una mayor exactitud entre los resultados reales y los simulados, basta con añadir una resistencia en serie
-    con dichas bobinas. De esta forma se obtiene la siguiente salida:
-\vspace*{1.0cm}
+    con dichas bobinas. %El valor de la resistencia parásita que se pudo medir en el laboratorio es $R_{L} = 28 \omega$.  
+    
+    \paragraph*{}
+    Utilizando los valores de 11 kHz y con una tensión de entrada de 1000 mV (valores con los que se obtiene la máxima ganancia en el circuito real), se puede medir 
+    que el valor real es: $G_{R_{f0}} \approx 30$  mientras que el valor ideal según al simulación es: $G_{I{f0}} \approx 86$. Para obtener resultamos similares 
+    a los reales en la simulación, colocamos una resistencia en serie con cada una de las bobinas y vamos variando su valor hasta obtener aquel que haga que la ganacia 
+    ideal sea la misma o muy parecida que la real. 
+    
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{img/resis_bobina.png}
+      \caption{Simulación para la obtención de la resistencia parásita de las bobinas.}%
+      \label{fig:res_bobina}
+    \end{figure}
+    
+    \paragraph*{}
+    Por lo tanto, obtenemos así una resistencia parásita en las bobinas de: $R_{L} \approx 10.7 \Omega$.
+
+
 \end{document}
