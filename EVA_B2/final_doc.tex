@@ -141,13 +141,32 @@
   %\newpage
   
   \section{Apartado 1}
-
     \paragraph*{}
+    En el primer apartado se pide calcular la SNR a la entrada y la salida del LNA del circuito para dos valores de entrada dados, -30 y -70 dBm.
+    Para ello, y como puede verse en los cálculos anexados, primero debe calcularse la SNR de entrada del LNA. Para ello, se divide la potencia
+    de la señal de entrada entre la potencia del ruido térmico a la entrada, como puede verse en la fórmula, y se cambia de unidades lineales a logarítmicas.
+    
+    \paragraph*{}
+    Una vez calculada la SNR de entrada para ambos casos, basta con restar la figura de ruido del LNA para obtener las señales SNA de salida correspondientes.
+
 
   \section{Apartado 2}
-  
-  \section{Apartado 3}
+  \paragraph*{}
+  En el segundo apartado se pide calcular la figura de ruido del mezclador y etapas siguientes para que la figura de ruido total del receptor no supere nunca 10dB.
+  Como puede verse en el diagrama de bloques anexado, se ha modelado el circuito con una bifurcación en dos líneas (la línea I y la Q, como corresponde a un receptor en cuadratura).
+  Ambas líneas son simétricas exceptuando un desfase de 90º, pero los bloques que las componen son los mismos. Más concretamente, cada línea se compone
+  de un mezclador, un filtro paso bajo y un controlador automático de ganancia (AGC).
+  \paragraph*{}
+  Para resolver este apartado, se ha de tener en cuenta que la figura de ruido más importante, debido a la formula de Friis, es la del LNA, la cual es conocida (de 2,4 dB).
+  Por tanto, pueden modelarse el resto de bloques como uno solo, y encontrar la figura de ruido máxima de este simplemente despejando de la formula de Friis. Así,
+  se consigue una figura de ruido máxima posible para ese bloque equivalente de 25,18 dB.
 
+  \section{Apartado 3}
+  \paragraph*{}
+  En el tercer apartado se pide calcular las ganancias mínima y máxima del AGC, suponiendo el caso de máxima ganancia para -70 dBm a la entrada.
+  Sabiendo que el AGC mantiene una salida 1 Vrms, y que su margen de ganancias es de 40 dB, basta con calcular la ganancia máxima, que será de 130 dBm
+  (la diferencia entre los 60 dbM a la salida correspondientes a 1 Vrms y la suposición de -70 dBm de la entrada.) Después, se aplica el rango de 40 dB que
+  caracteriza al AGC y se obtiene la ganancia mínima, de 90 dB para este caso.
   \section{Apartado 4}
 
   \section{Apartado 5}
