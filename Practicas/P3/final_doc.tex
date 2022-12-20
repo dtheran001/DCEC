@@ -165,12 +165,12 @@
               \hline
               \rowcolor{black}
               \textcolor{white}{$F_{ref}$ (kHz)} & \textcolor{white}{$F_{VCO}$ (kHz)} & \textcolor{white}{$\Delta \phi$ ($\mu$ s)} & \textcolor{white}{$V_{VCO}$ (V)}\\ \hline
-              1.24 & 15.6 & 172 &  2.12\\ \hline
-              1.511 & 23.8 & 144 &  2.35\\ \hline
-              1.911 & 29.4 & 124 &  2.61\\ \hline
-              2.378 & 35.7 & 114 & 2.91\\ \hline
-              2.901 & 41.7 & 102 &  3.27\\ \hline
-              3.142 & 47.2 & 100 & 3.44\\ 
+              1.24 & 15.6 & 100 &  2.12\\ \hline
+              1.511 & 23.8 & 102 &  2.35\\ \hline
+              1.911 & 29.4 & 114 &  2.61\\ \hline
+              2.378 & 35.7 & 124 & 2.91\\ \hline
+              2.901 & 41.7 & 144 &  3.27\\ \hline
+              3.142 & 47.2 & 172 & 3.44\\ 
               \hline 
           \end{tabular}
           \caption{Tabla de resultados reales de la práctica}
@@ -214,39 +214,11 @@
       \caption{Diagrama de bode un filtro paso banda ideal de segundo orden}%
       \label{fig:bode_ideal}
     \end{figure}
-    
-    \paragraph*{}
-    Podemos observar que el comportamiento en cuanto a la magnitud del filtro y el diagrama de bode real del amplificador son muy similares, por lo que concluimos que el funcionamiento 
-    del amplificador es el adecuado teniendo en cuenta los datos medidos. 
 
-    \paragraph*{}
-    Cabe recalcar que para que los diagramas de bode reales e ideales mostrados sean más similares, es necesario obtener más valores de medida en saltos más pequeños en eje de frecuencias. 
-    Por otro lado, el comportamiento de la fase en el diagrama de bode real no corresponde con la fase ideal debido a que para representar correctamente el comportamiento del amplificador 
-    habría que calcular la función de transferencia en el dominio de Laplace y usar herramientas como Matlab para representarlo (de la misma manera como se calculo el diagrama de bode ideal
-    con una función de transferencia genérica de un filtro paso banda ideal).
 
   \section{Apartado 4}
 
-    \paragraph*{}
-    La diferencia entre los resultados medidos en el laboratorio y los resultados de la simulación se debe principalmente a la resistencia parásita
-    que aparece en las bobinas reales. Por tanto, para una mayor exactitud entre los resultados reales y los simulados, basta con añadir una resistencia en serie
-    con dichas bobinas. %El valor de la resistencia parásita que se pudo medir en el laboratorio es $R_{L} = 28 \omega$.  
-    
-    \paragraph*{}
-    Utilizando los valores de 11 kHz y con una tensión de entrada de 100 mV (valores con los que se obtiene la máxima ganancia en el circuito real), se puede medir 
-    que el valor real es: $G_{R_{f0}} \approx 30$  mientras que el valor ideal según al simulación es: $G_{I{f0}} \approx 86$. Para obtener resultamos similares 
-    a los reales en la simulación, colocamos una resistencia en serie con cada una de las bobinas y vamos variando su valor hasta obtener aquel que haga que la ganacia 
-    ideal sea la misma o muy parecida que la real. 
-    
-    \begin{figure}[H]
-      \centering
-      \includegraphics[width=1\linewidth]{img/1khz.jpeg}
-      \caption{Simulación para la obtención de la resistencia parásita de las bobinas.}%
-      \label{fig:res_bobina}
-    \end{figure}
-    
-    \paragraph*{}
-    Por lo tanto, obtenemos así una resistencia parásita en las bobinas de: $R_{L} \approx 10.7 \Omega$.
+
 
 
 \end{document}
