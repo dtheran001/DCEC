@@ -137,25 +137,16 @@
     {\Large 19 de diciembre del 2022 \par}
   \end{titlepage}
 
-  \section{Apartado 1}
+  \section{Apartado 1: cálculos teóricos}
 
     \paragraph*{}
-    En este apartado se pedía realizar el montaje del siguiente circuito esquemático: 
-
-    \begin{figure}[H]
-      \centering
-      \includegraphics[width=1\linewidth]{img/1khz.jpeg}
-      \caption{Circuito esquemático a montar: Amplificador sintonizado}%
-      \label{fig:esque_ampl}
-    \end{figure}
-    
-    \paragraph*{}
-    Como de puede observar, se trata de un circuito con una etapa diferencia adaptada (puesto que no tenemos manera de invertir la señal e introducir 
-    exactamente las tensiones positivas y negativas en ambos lados del diferencial) que junto con las bobinas y condensador que unen las dos etapas 
-    se obtiene un amplificador de tensión sintonizado. La tensión de salida será la resta del lado izquierdo y derecho del condensador $C_1$, la cual 
-    podremos medir con las herramientas que nos presta el osciloscopio. 
-    
   
+    
+  \section{Apartado 2: resultados experimentales}
+
+  \paragraph*{}
+  Una vez realizado el montaje del circuito tal y como se indica en el informe, se obtienen, tomando los valores con el osciloscopio tal y como se indica en el informe, para un margen de fijado de 1.32 a 3.29 kHz de frecuencia
+  de referencia, los siguientes valores para la salida en frecuencia de VCO, la amplitud de dicha señal y el desfase entre ambas:
 
 \vspace*{1.0cm}
 
@@ -165,10 +156,10 @@
               \hline
               \rowcolor{black}
               \textcolor{white}{$F_{ref}$ (kHz)} & \textcolor{white}{$F_{VCO}$ (kHz)} & \textcolor{white}{$\Delta \phi$ ($\mu$ s)} & \textcolor{white}{$V_{VCO}$ (V)}\\ \hline
-              1.24 & 15.6 & 172 &  2.12\\ \hline
+              1.11 & 15.6 & 172 &  2.12\\ \hline
               1.511 & 23.8 & 144 &  2.35\\ \hline
               1.911 & 29.4 & 124 &  2.61\\ \hline
-              2.378 & 35.7 & 114 & 2.91\\ \hline
+              2.36 & 35.7 & 114 & 2.91\\ \hline
               2.901 & 41.7 & 102 &  3.27\\ \hline
               3.142 & 47.2 & 100 & 3.44\\ 
               \hline 
@@ -179,53 +170,72 @@
     \end{table}
 
   \paragraph*{}
-    De la tabla anterior, se puede recalcar que en el polo de funcionamiento del amplificador ($f_0 = 11 kHz$) es cuando el amplificador tiene un mejor desempeño aplicando una ganancia de 
-    aproximadamente 30. Si nos vamos alejando poco a poco de dicho polo, vemos como la ganancia cae rápidamente, por lo que podemos intuir que su comportamiento en el dominio de Laplace será 
-    un filtro paso banda de segundo orden. 
-
-    \paragraph*{}
-    Para ver ésto más en profundidad, en el apartado siguiente se dibujará el diagrama de bode del amplificador y se comparará con su diagrama ideal. 
-
-  \section{Apartado 3}
-
-    \paragraph*{}
-    En este apartado se dibujará el diagrama de bode del amplificador sintonizado construido a partir de los valores obtenidos y además se comparará con su función ideal. 
-
-    \paragraph*{}
-    El diagrama de bode obtenido del circuito construido es el siguiente: 
-   
-    \begin{figure}[H]
-      \centering
-      \includegraphics[width=1\linewidth]{img/2khz.jpeg}
-      \caption{Diagrama de bode del circuito construido}%
-      \label{fig:bode_real}
-    \end{figure}
-    
-    \paragraph*{}
-    Como se puede observar, tenemos un pico de ganancia máxima en la frecuencia del polo de funcionamiento del amplificador, en 11 kHz, alrededor de él la ganancia aplicada 
-    recae rápidamente. 
-
-    \paragraph*{}
-    Un diagrama de bode de un filtro paso banda de segundo orden ideal, sería el siguiente: 
+    A muestra de ejemplo, se han tomado como muestra para el informe las frecuencias de referencia de 1.11 kHz y 2.36 kHz, para las que se obtiene
+    las siguientes señales de entrada y salida:
 
     \begin{figure}[H]
       \centering
       \includegraphics[width=1\linewidth]{img/1khz.jpeg}
-      \caption{Diagrama de bode un filtro paso banda ideal de segundo orden}%
-      \label{fig:bode_ideal}
+      \caption{Señales para 1.11 kHz}%
+      \label{fig:1khz}
+    \end{figure}
+    \paragraph*{}
+   
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{img/2khz.jpeg}
+      \caption{Señales para 2.36 kHz}%
+      \label{fig:2khz}
+    \end{figure}
+
+
+    \paragraph*{}
+   Una vez medidos los anteriores valores, podemos situar los distintos puntos encontrados para medir en dos gráficas distintas la frecuencia de salida VCO frente
+   a la tensión VCO y la gráfica característica del detecor de fase, que muestra la relación entre las dos señales de entrada y de salida (es decir, el desfase entre ambas)
+   y la ganancia en tensión que introduce el circuito, es decir, la tensión VCO.
+    
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{img/grafica1.jpeg}
+      \caption{Gráfica de relación entre frecuencia VCO y tensión VCO}%
+      \label{fig:grafica1}
+    \end{figure}
+
+    \paragraph*{}
+    Esta primera gráfica muestra la relación entre la frecuencia introducida por el circuito y la amplitud correspondiente. Por tanto, la pendiente de la recta obtenida
+para esta gráfica nos muestra la ganancia en frecuencia introducida por el circuito. Así, mediante la ecuación:
+
+ % \paragraph*{}
+  \begin{center}
+    $K_{VCO} = \frac{F_{VCO2} - F_{VCO1}}{V_{VCO2} - V_{VCO1}}$
+  \end{center}
+    
+ % \paragraph*{}
+  Obtenemos una ganancia de frecuencia de 19.45. Hay que remarcar que, debido a los errores de medición y a que la recta no ha sido representada estadísticamente sino como
+  una gráfica que une los puntos obtenidos,
+  el error en el cálculo de la pendiente es de una magnitud notable.
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{img/grafica2.jpeg}
+      \caption{Gráfica característica del detector de fase}%
+      \label{fig:grafica2}
     \end{figure}
     
     \paragraph*{}
-    Podemos observar que el comportamiento en cuanto a la magnitud del filtro y el diagrama de bode real del amplificador son muy similares, por lo que concluimos que el funcionamiento 
-    del amplificador es el adecuado teniendo en cuenta los datos medidos. 
+    La segunda gráfica muestra la relación entre la amplitud introducida por el circuito y los desfases entre la señal de entrada y salida. Por tanto, la pendiente de la recta obtenida
+para esta gráfica nos muestra la característica del detector de fase. Así, mediante la ecuación:
 
-    \paragraph*{}
-    Cabe recalcar que para que los diagramas de bode reales e ideales mostrados sean más similares, es necesario obtener más valores de medida en saltos más pequeños en eje de frecuencias. 
-    Por otro lado, el comportamiento de la fase en el diagrama de bode real no corresponde con la fase ideal debido a que para representar correctamente el comportamiento del amplificador 
-    habría que calcular la función de transferencia en el dominio de Laplace y usar herramientas como Matlab para representarlo (de la misma manera como se calculo el diagrama de bode ideal
-    con una función de transferencia genérica de un filtro paso banda ideal).
+ % \paragraph*{}
+  \begin{center}
+    $K_{CF} = \frac{V_{VCO2} - V_{VCO1}}{\Delta\phi_{2} - \Delta\phi_{1}}$
+  \end{center}
+    
+ % \paragraph*{}
+  Obtenemos una magnitud característica de $\frac{9.9}{\pi}$ V/rad, tomando el desfase, que en la tabla aparece representado en microsegundos, en radianes. Debe señalarse que se cometen los mismos errores en el cálculo que para el anterior caso.
 
-  \section{Apartado 4}
+    \section{Apartado 3: resultados conclusiones}
 
     \paragraph*{}
     La diferencia entre los resultados medidos en el laboratorio y los resultados de la simulación se debe principalmente a la resistencia parásita
