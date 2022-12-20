@@ -140,8 +140,50 @@
   \section{Apartado 1: cálculos teóricos}
 
     \paragraph*{}
+    En este apartado se pretende caracterizar el VCO y el contador utilizando como guía la data sheet que nos proporciona el vendedor. En concreto se busca encontrar cuál es la $K_{VCO}$ y la $K_{VCF}$
+    (ganancia de frecuencia en rad/s/v y ganancia del detector de fase en V/rad/s respectivamente) para posteriormente contrastar los resultados teóricos con los experimentales que se mencionan en el apartado siguiente. 
+
+    \paragraph*{}
+    Primero revisamos hoja de especificaciones del PLL \textbf{CD4046} \footnote{Data sheet disponible en: \href{https://www.floka.com/cmos/pdf/4046.pdf}{https://www.floka.com/cmos/pdf/4046.pdf}}
+    y vemos cual es el valor máximo y mínimo de frecuencia a la que puede funcionar así como las tensiones correspondientes a dichos valores. De la misma obtenemos que cuando el PLL se alimenta con 
+    0 V, entonces estamos funcionando a la frecuencia mínima que es también 0 Hz; y cuando lo alimentamos con VDD = 5 V (la tensión de alimentación del esquema), entonces la frecuencia de funcionamiento 
+    es 100 kHz.
   
+    \paragraph*{}
+    Con estos datos podemos sacar que la pendiente y por lo tanto la ganancia $K_{VCO} = 100 kHz/5 V$ o lo que en rad/v será $K_{VCO} = 2\pi·20 rad/V$. 
+
+    \paragraph*{}
+    Lo siguiente a calcular es la ganancia $K_{VCF}$ que corresponde con la característica del detector de fase, para ello vamos a la hoja de especificaciones del \textbf{74HCT93} y vemos que al tratarse de un XOR y que ademas 
+    se está alimentando a 5V, tenemos entonces que el $K_{VCF} = 5/\pi V/rad$. 
+
+    \paragraph*{}
+    Con estos dos valores podemos entonces calcular la función de transferencia teniendo en cuenta que tenemos un filtro RC: 
+  
+    \begin{center} \label{ec:transfer}
+          $\frac{\phi_O}{\phi_r}$ = $\frac{K_{VCO}·K_{VCF}·w_c}{s^2 + s·w_c + K_{VCO}·K_{VCF}·\frac{w_c}{N}}$
+    \end{center}
     
+     
+    Donde: 
+    \begin{itemize}
+      \item $w_c = \frac{1}{RC}$
+      \item $N = f_0/f_{ref} = 16$ 
+    \end{itemize}
+  
+  \paragraph*{}
+  Con la función de transferencia obtenida, se procede a realizar su representación en un diagrama de bode con la ayuda de Matlab, dando como resultado la siguiente figura:
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{img/BODE.jpeg}
+    \caption{Diagrama de Bode de la función de transferencia teórica.}%
+    \label{fig:bodeteo}
+  \end{figure}
+
+  \paragraph*{}
+  Se puede observar que ancho de banda es bastante estrecho, lo cual tiene sentido pues el rango de frecuencias en las que engancha la frecuencia de referencia varían entorno 
+  a 2 kHz, como se mencionará mas adelante. 
+  
   \section{Apartado 2: resultados experimentales}
 
   \paragraph*{}
@@ -191,7 +233,7 @@
 
     \paragraph*{}
    Una vez medidos los anteriores valores, podemos situar los distintos puntos encontrados para medir en dos gráficas distintas la frecuencia de salida VCO frente
-   a la tensión VCO y la gráfica característica del detecor de fase, que muestra la relación entre las dos señales de entrada y de salida (es decir, el desfase entre ambas)
+   a la tensión VCO y la gráfica característica del detector de fase, que muestra la relación entre las dos señales de entrada y de salida (es decir, el desfase entre ambas)
    y la ganancia en tensión que introduce el circuito, es decir, la tensión VCO.
     
 
@@ -229,13 +271,39 @@ para esta gráfica nos muestra la característica del detector de fase. Así, me
 
  % \paragraph*{}
   \begin{center}
-    $K_{CF} = \frac{V_{VCO2} - V_{VCO1}}{\Delta\phi_{2} - \Delta\phi_{1}}$
+    $K_{VCF} = \frac{V_{VCO2} - V_{VCO1}}{\Delta\phi_{2} - \Delta\phi_{1}}$
   \end{center}
     
  % \paragraph*{}
-  Obtenemos una magnitud característica de $\frac{9.9}{\pi}$ V/rad, tomando el desfase, que en la tabla aparece representado en microsegundos, en radianes. Debe señalarse que se cometen los mismos errores en el cálculo que para el anterior caso.
+  Obtenemos una magnitud característica de $\frac{9.9}{\pi}$ V/rad, tomando el desfase, que en la tabla aparece representado en microsegundos, en radianes. Debe señalarse que se cometen 
+  los mismos errores en el cálculo que para el anterior caso.
 
-    \section{Apartado 3: resultados conclusiones}
+  \paragraph*{}
+  Con los resultados obtenidos y utilizando la misma función de transferencia (ec. \ref{ec:transfer}), obtenemos el siguiente diagrama de bode en Matlab:
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{img/bode2.jpeg}
+    \caption{Diagrama de Bode de la función de transferencia experimental}%
+    \label{fig:bodeex}
+  \end{figure}
+  
+  \paragraph*{}
+  Como podemos observar, el diagrama de bode experimental es muy similar al real salvo un desplazamiento de la frecuencia central del mismo. 
+  
+
+  \section{Apartado 3: resultados conclusiones}
+  
+  \paragraph*{}
+  Como conclusión, se puede observar que el circuito experimental alcanza los mismos resultados que los obtenidos mediante los resultados
+  calculados teóricamente. No obstante, hay que realizar algunos comentarios.
+  
+  \paragraph*{}
+  La ganancia del detector de fase obtenida experimentalmente es el doble que la obtenida en el apartado teórico. Esto se debe a que la frecuencia 
+  de referencia para la que se consigue fijar una señal VCO estable es aproximadamente 2.5 kHz, con un margen de 1.1 kHz a 3.29 kHz, como se ha mencionado
+  anteriormente, cuando lo esperado experimentalmente eran entre 5 y 7 kHz. Dado que el montaje ha sido verificado varias veces y los resultados son 
+  coherentes con el diseño del circuito, aunque los valores de la ganancia de detector de fase y frecuencias de referencia sean menores se han dado
+  por válidas, considerando este desvío como un problema debido a los componentes empleados, sin afectar así al desarrollo de la práctica.
 
     
 
